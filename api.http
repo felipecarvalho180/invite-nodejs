@@ -3,12 +3,26 @@ Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "john.doe@example.com"
+  "email": "john.doe3217@example.com",
+  "referrerId": "c5485c01-8a22-4c71-891f-7b6beeb89ad1"
 }
 
 ###
 
-GET http://localhost:3333/invites/123
+GET http://localhost:3333/invites/b1265e18-7273-4458-9460-8bb4acc5d619
 
 ###
 
+GET http://localhost:3333/invites/b1265e18-7273-4458-9460-8bb4acc5d619/ranking/clicks
+
+###
+
+GET http://localhost:3333/invites/b1265e18-7273-4458-9460-8bb4acc5d619/ranking/count
+
+###
+
+GET http://localhost:3333/invites/b1265e18-7273-4458-9460-8bb4acc5d619/ranking/position
+
+###
+
+GET http://localhost:3333/ranking

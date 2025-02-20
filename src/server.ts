@@ -9,8 +9,12 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from './env'
-import { accessInviteLinkSchema } from './routes/access-invite-link'
-import { subscribeToEventSchema } from './routes/subscribe-to-event-route'
+import { accessInviteLinkRoutes } from './routes/access-invite-link'
+import { getRankingRoutes } from './routes/get-ranking'
+import { getSubscriberInviteClicksRoutes } from './routes/get-subscriber-invite-clicks'
+import { getSubscriberInvitesCountRoutes } from './routes/get-subscriber-invites-count'
+import { getSubscriberRankingPositionRoutes } from './routes/get-subscriber-ranking-position'
+import { subscribeToEventRoutes } from './routes/subscribe-to-event-route'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -30,8 +34,12 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
 
-app.register(subscribeToEventSchema)
-app.register(accessInviteLinkSchema)
+app.register(subscribeToEventRoutes)
+app.register(accessInviteLinkRoutes)
+app.register(getSubscriberInviteClicksRoutes)
+app.register(getSubscriberInvitesCountRoutes)
+app.register(getSubscriberRankingPositionRoutes)
+app.register(getRankingRoutes)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running! 🚀')
